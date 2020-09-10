@@ -1,0 +1,3 @@
+#!/bin/bash
+ls -ap --format commas
+ 
