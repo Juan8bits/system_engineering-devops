@@ -1,2 +1,2 @@
-B#!/bin/bash
+#!/bin/bash
 sudo chown holberton hello
