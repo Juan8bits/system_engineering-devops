@@ -1,0 +1,1 @@
+This directory contains all task of project 0x02-shell_redirections
