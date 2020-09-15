@@ -1,0 +1,1 @@
+This directory contains all task of this project 0x03 shell variables expansions
