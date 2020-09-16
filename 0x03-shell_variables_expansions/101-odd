@@ -1,2 +1,2 @@
 #!/bin/bash
-awk '!(NR%1)' ./
+awk ' NR % 2 == 1 {print;} NR % 2==0 {print;}' ./
