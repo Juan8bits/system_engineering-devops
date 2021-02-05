@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+#Bash script that displays Holberton School 10 times, but for the 9th iteration, displays Holberton School and then Hi on a new line.
+iter=0
+while [ $iter -lt 10 ]
+do
+    if [ $iter -eq 9 ]
+    then
+        echo Hi
+    fi
+    echo Holberton School
+    (( iter++ ))
+done

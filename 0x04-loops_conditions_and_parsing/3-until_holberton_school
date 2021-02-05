@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#Scrip that displays "Holberton School" 10 times using until loop
+iterator=0
+until [ $iterator -gt 9 ]
+do
+    echo "Holberton School"
+    ((iterator++))
+done
