@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #Bash script that displays Holberton School 10 times using while loop.
 iterator=0
-while [ $iterator -lt 9 ]
+while [ $iterator -le 9 ]
 do
     echo Holberton School
     ((iterator++))
