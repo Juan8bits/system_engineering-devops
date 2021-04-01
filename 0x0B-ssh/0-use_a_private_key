@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Script that connects the actual machine to the 34.74.10.45 server.
+ssh -i ~/.ssh/holberton ubuntu@34.74.10.45
