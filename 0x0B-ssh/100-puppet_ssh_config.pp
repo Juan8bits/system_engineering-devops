@@ -1,11 +1,14 @@
 # PPFile that config ssh_config file.
 file_line{ 'Turn off passwd auth':
-    path  => '/etc/ssh/ssh_config',
-    line  => 'PasswordAuthentication yes',
-    match => '^PasswordAutentication*$',
+    ensure => 'present',
+    path   => '/etc/ssh/ssh_config',
+    line   => '    PasswordAuthentication no',
+    match  => '(PasswordAuthentication.no)\n',
 }
+
 file_line{ 'Declare identity file':
-    path  => '/etc/ssh/ssh_config',
-    line  => 'IdentityFile ~/.ssh/holberton',
-    match => '^IdentityFile*$',
+    ensure => 'present'
+    path   => '/etc/ssh/ssh_config',
+    line   => '    IdentityFile ~/.ssh/holberton',
+    match  => '(IdentityFile.+)\n',
 }
