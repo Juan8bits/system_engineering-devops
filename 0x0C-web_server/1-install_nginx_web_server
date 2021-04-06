@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Script that install NGINX, be listening on port 80 and must return
+# a page that contains the string "Holberton School"
+sudo apt-get -y update
+sudo apt-get -y install nginx
+sudo ufw allow 'Nginx HTTP'
+echo "Holberton School" > /var/www/html/index.html
+sudo service nginx start
