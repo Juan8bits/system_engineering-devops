@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Start Apache web server was the solution.
+sudo service apache2 start
