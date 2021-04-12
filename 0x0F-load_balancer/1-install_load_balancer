@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Script that install and config load balancer for two servers.
+
+sudo apt-get update
+sudo apt-get install haproxy=1.6.\*
+printf %s "frontend http_front
+    bind *:80
+    default_backend web-backend
+
+backend web-backend
+    balance roundrobin
+    server 2418-web-01  34.74.10.45
+    server 2418-web-02  54.235.19.10
+" >> /etc/haproxy/haproxy.cfg
+sudo service haproxy restart   
