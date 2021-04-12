@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # Script that install and config load balancer for two servers.
 
-sudo apt-get update
-sudo apt-get install haproxy=1.6.\*
+sudo apt-get -y update
+sudo apt-get -y install haproxy=1.6.\*
 printf %s "frontend http_front
     bind *:80
     default_backend web-backend
