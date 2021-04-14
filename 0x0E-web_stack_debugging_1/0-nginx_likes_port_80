@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Script that install NGINX, be listening on port 80 and fix and issue
+# with the file default from sites-enable
+sudo apt-get -y update
+sudo apt-get -y install nginx
+sudo ufw allow 'Nginx HTTP'
+sudo rm /etc/nginx/sites-enabled/default
+sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+sudo service nginx restart
