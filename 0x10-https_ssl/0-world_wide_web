@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Script that display the information for the subdomains of the parameter given. 
+
+dig_exec()
+{
+    dig "$2.$1" | grep -A1 'ANSWER SECTION:' | grep "$2" | awk -v subd="$2" '{print "The subdomain " subd " is a " $4 " record and points to " $5}'
+}
+
+if [ $# -eq 1 ]
+then
+    for info in 'www' 'lb-01' 'web-01' 'web-02'
+    do
+        dig_exec "$1" "$info"
+    done
+else
+    dig_exec "$1" "$2"
+fi
