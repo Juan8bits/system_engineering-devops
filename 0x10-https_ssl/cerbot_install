@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# If the srcipt doesnt work just replace the $poop variable with your domain
+poop="tudominioaquiconwww"
+sudo apt-get update
+sudo apt-get install snapd                 # Install snapd. For 16.06 and better, it´s not necessary
+sudo snap install core                     # Check if snapd is up to date
+sudo snap refresh core
+sudo apt-get remove certbot
+sudo snap install --classic certbot        # Install Cerbot
+sudo service haproxy stop
+sudo certbot certonly --standalone --preferred-challenges http --http-01-port 80 -d $poop
+sudo ls /etc/letsencrypt/live/$poop
+printf "Arriba de esto debieron salir archivos\n"
+sudo mkdir -p /etc/haproxy/certs
+DOMAIN=$poop
+sudo -E bash -c "cat /etc/letsencrypt/live/$DOMAIN/fullchain.pem /etc/letsencrypt/live/$DOMAIN/privkey.pem > /etc/haproxy/certs/$DOMAIN.pem"
+sudo chmod -R go-rwx /etc/haproxy/certs
+sudo service haproxy restart
+printf "\n\n"
+printf "Is the momento to CONFIG FILE of HAPROXY.. sing up in the following link\n  "
+echo "https://www.digitalocean.com/community/tutorials/how-to-secure-haproxy-with-let-s-encrypt-on-ubuntu-14-04#step-4-%E2%80%94-configuring-haproxy"
