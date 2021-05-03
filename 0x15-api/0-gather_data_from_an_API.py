@@ -19,4 +19,4 @@ if __name__ == "__main__":
 
     print('Employee {} is done with tasks({}/{}):'
           .format(user_name, len(succed_tasks), len(tasks)))
-    [print('\t' + task['title']) for task in succed_tasks]
+    [print('     ' + task['title']) for task in succed_tasks]
