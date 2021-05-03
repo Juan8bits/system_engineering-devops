@@ -13,7 +13,7 @@ if __name__ == "__main__":
     users = requests.get(url_users + argv[1])
     todo = requests.get('https://jsonplaceholder.typicode.com/todos')
 
-    usr_name = json.loads(users.text)['name']
+    usr_name = json.loads(users.text)['username']
     todo = json.loads(todo.text)
     tasks = list(i for i in todo if i['userId'] == int(argv[1]))
     succed_tasks = list(i for i in tasks if i['completed'] is True)
