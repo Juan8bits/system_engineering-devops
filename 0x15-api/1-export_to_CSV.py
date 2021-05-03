@@ -19,6 +19,6 @@ if __name__ == "__main__":
     succed_tasks = list(i for i in tasks if i['completed'] is True)
 
     with open(argv[1] + '.csv', 'w') as _file:
-        objcsv = csv.writer(_file)
+        objcsv = csv.writer(_file, quoting=csv.QUOTE_ALL)
         for i in tasks:
             objcsv.writerow([argv[1], usr_name, i['completed'], i['title']])
