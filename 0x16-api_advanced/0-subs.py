@@ -12,8 +12,10 @@ def number_of_subscribers(subreddit):
         Return the numbre of suscribers for reddit Api
         according to a subreddit.
     """
+    header = {'User-Agent':'Chrome/90.0.4430.212 Safari/537.36'}
     req = requests.get('https://www.reddit.com/r/{}/about.json'
-                       .format(subreddit), allow_redirects=False)
+                       .format(subreddit), allow_redirects=False,
+                       headers=header)
     if req.status_code == 200:
         subscribers = req.json().get('data').get('subscribers')
         return subscribers
