@@ -13,9 +13,9 @@ def top_ten(subreddit):
     """
     req = requests.get('https://www.reddit.com/r/{}/hot.json?limit=10'
                        .format(subreddit), allow_redirects=False)
-    if req.status_code == '200':
+    if req.status_code == 200:
         list_titles = req.json().get('data').get('children')
         for title in list_titles:
             print(title.get('data').get('title'))
     else:
-        print('None')
+        print(None)
