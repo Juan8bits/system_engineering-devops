@@ -1,3 +1,5 @@
+# Default for nginx config task 5.
+
 server {
         listen 80 default_server;
         listen [::]:80 default_server;
@@ -30,12 +32,12 @@ server {
 
         server_name _;
         add_header X-Served-By 2418-web-01;
-        error_page 404 /404_error.html;
+        
+	error_page 404 /404_error.html;
         rewrite ^/redirect_me https://www.youtube.com/watch?v=OrK6QxS_ZRk permanent;
 
-        location / {
-                # First attempt to serve request as file, then
-                # as directory, then fall back to displaying a 404.
-                try_files $uri $uri/ =404;
-        }
+        location /error_page.html {
+        	root /usr/share/nginx/html; 
+                internal;
+	}
 }
